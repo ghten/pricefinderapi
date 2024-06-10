@@ -34,3 +34,13 @@ Swagger UI está disponible en `http://localhost:8080/swagger-ui/index.html`.
 mvn test
 
 
+### Ejecutar pruebas de integración:
+```bash
+mvn -Dtest=CucumberPriceFinderApiTest test
+
+### los tests realizados con Cucumber:
+Test 1: Petición a las 10:00 del día 14 del producto 35455 para la brand 1 (ZARA).
+Test 2: Petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA).
+Test 3: Petición a las 21:00 del día 14 del producto 35455 para la brand 1 (ZARA).
+Test 4: Petición a las 10:00 del día 15 del producto 35455 para la brand 1 (ZARA).
+Test 5: Petición a las 21:00 del día 16 del producto 35455 para la brand 1 (ZARA).

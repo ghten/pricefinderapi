@@ -1,7 +1,6 @@
 package com.inditex.pricefinderapi.application.service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
