@@ -1,9 +1,9 @@
-package com.inditex.pricefinderapi.application.service;
+package com.inditex.pricefinderapi.domain.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.inditex.pricefinderapi.api.dto.PriceDTO;
+import com.inditex.pricefinderapi.application.dto.PriceDTO;
 
 public interface PriceService {
 

@@ -1,6 +1,6 @@
 package com.inditex.pricefinderapi.application.mapper;
 
-import com.inditex.pricefinderapi.api.dto.PriceDTO;
+import com.inditex.pricefinderapi.application.dto.PriceDTO;
 import com.inditex.pricefinderapi.domain.model.Price;
 
 public class PriceMapper {

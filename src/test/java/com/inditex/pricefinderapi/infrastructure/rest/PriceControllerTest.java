@@ -1,4 +1,4 @@
-package com.inditex.pricefinderapi.api.controller;
+package com.inditex.pricefinderapi.infrastructure.rest;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -18,8 +18,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.inditex.pricefinderapi.api.dto.PriceDTO;
-import com.inditex.pricefinderapi.application.service.PriceService;
+import com.inditex.pricefinderapi.application.dto.PriceDTO;
+import com.inditex.pricefinderapi.domain.service.PriceService;
 
 class PriceControllerTest {
 

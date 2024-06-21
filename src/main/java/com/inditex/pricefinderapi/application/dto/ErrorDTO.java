@@ -1,4 +1,4 @@
-package com.inditex.pricefinderapi.api.dto;
+package com.inditex.pricefinderapi.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

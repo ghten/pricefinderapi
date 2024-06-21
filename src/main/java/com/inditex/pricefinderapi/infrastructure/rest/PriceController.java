@@ -1,4 +1,4 @@
-package com.inditex.pricefinderapi.api.controller;
+package com.inditex.pricefinderapi.infrastructure.rest;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inditex.pricefinderapi.api.dto.ErrorDTO;
-import com.inditex.pricefinderapi.api.dto.PriceDTO;
-import com.inditex.pricefinderapi.application.service.PriceService;
+import com.inditex.pricefinderapi.application.dto.ErrorDTO;
+import com.inditex.pricefinderapi.application.dto.PriceDTO;
+import com.inditex.pricefinderapi.domain.service.PriceService;
 import com.inditex.pricefinderapi.infrastructure.exception.PriceNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

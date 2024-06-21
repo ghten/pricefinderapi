@@ -16,7 +16,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.inditex.pricefinderapi.api.dto.PriceDTO;
+import com.inditex.pricefinderapi.application.dto.PriceDTO;
 import com.inditex.pricefinderapi.domain.model.Price;
 import com.inditex.pricefinderapi.domain.repository.PriceRepository;
 import com.inditex.pricefinderapi.infrastructure.exception.PriceNotFoundException;

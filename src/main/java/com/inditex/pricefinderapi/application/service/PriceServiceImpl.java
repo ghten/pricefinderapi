@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.inditex.pricefinderapi.api.dto.PriceDTO;
+import com.inditex.pricefinderapi.application.dto.PriceDTO;
 import com.inditex.pricefinderapi.application.mapper.PriceMapper;
 import com.inditex.pricefinderapi.domain.model.Price;
 import com.inditex.pricefinderapi.domain.repository.PriceRepository;
+import com.inditex.pricefinderapi.domain.service.PriceService;
 import com.inditex.pricefinderapi.infrastructure.exception.PriceNotFoundException;
 import lombok.AllArgsConstructor;
 
