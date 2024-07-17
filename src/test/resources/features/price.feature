@@ -25,5 +25,8 @@ Feature: Price Finder API
     When I request price for the product 35455 of the brand 1 on date "2020-06-16T21:00:00"
     Then returned price must be 38.95
 
-
+  Scenario: Service throws exception
+    Given Service is running
+    When I request price for the product 35455 of the brand 1 on date "2020-06-14T10:00:00" and service throws exception
+    Then the response status should be 500
 

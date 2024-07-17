@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,9 +16,11 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.inditex.pricefinderapi.application.dto.PriceDTO;
 import com.inditex.pricefinderapi.domain.service.PriceService;
+import com.inditex.pricefinderapi.web.controller.GlobalExceptionHandler;
 
 class PriceControllerTest {
 
@@ -34,7 +35,10 @@ class PriceControllerTest {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(priceController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(priceController)
+                                 .setControllerAdvice(new GlobalExceptionHandler())
+                                 .addFilter(new CharacterEncodingFilter("UTF-8", true))
+                                 .build();
     }
 
 
@@ -52,7 +56,7 @@ class PriceControllerTest {
                                     .priority(1)
                                     .build();
 
-        when(priceService.getApplicablePrice(any(), any(), any())).thenReturn(Collections.singletonList(priceDTO));
+        when(priceService.getApplicablePrice(any(), any(), any())).thenReturn(priceDTO);
 
         mockMvc.perform(get("/prices")
                             .param("productId", "1")

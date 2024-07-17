@@ -6,6 +6,6 @@ import java.util.List;
 import com.inditex.pricefinderapi.domain.model.Price;
 
 public interface PriceRepository {
-    List<Price> findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(
-        Long productId, Long brandId, LocalDateTime startDate, LocalDateTime endDate);
+    List<Price> findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
+        Long productId, Long brandId, LocalDateTime date, LocalDateTime dateEnd);
 }

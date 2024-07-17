@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.inditex.pricefinderapi.application.dto.PriceDTO;
 import com.inditex.pricefinderapi.application.mapper.PriceMapper;
-import com.inditex.pricefinderapi.domain.model.Price;
 import com.inditex.pricefinderapi.domain.repository.PriceRepository;
 import com.inditex.pricefinderapi.domain.service.PriceService;
-import com.inditex.pricefinderapi.infrastructure.exception.PriceNotFoundException;
+import com.inditex.pricefinderapi.web.exception.PriceNotFoundException;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -20,17 +19,18 @@ public class PriceServiceImpl implements PriceService {
     private final PriceRepository priceRepository;
 
     @Override
-    public List<PriceDTO> getApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
+    public PriceDTO getApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
 
-        List<Price> prices = priceRepository.findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(
-            productId, brandId, applicationDate, applicationDate);
+        List<PriceDTO> prices = priceRepository.findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
+            productId, brandId, applicationDate, applicationDate)
+                                            .stream()
+                                            .map(PriceMapper::toDto)
+                                            .toList();
 
         if (prices.isEmpty()) {
             throw new PriceNotFoundException("No prices found for the given product and brand.");
         }
 
-        return prices.stream()
-                     .map(PriceMapper::toDto)
-                     .toList();
+        return prices.get(0);
     }
 }
